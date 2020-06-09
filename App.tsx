@@ -1,13 +1,7 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
-  );
-}
+import React from 'react'
+import { StyleSheet, View , Text} from 'react-native'
+import MessageWindow from './containers/MessageWindow'
+import styled from 'styled-components/native'
 
 const styles = StyleSheet.create({
   container: {
@@ -17,3 +11,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+const Container = styled.View`
+  height: 100%;
+  background-color: palevioletred;
+  justify-content: center;
+  align-items: center;
+`;
+
+export default function App() {
+  return (
+    <Container>
+      <MessageWindow></MessageWindow>
+    </Container>
+  );
+}
