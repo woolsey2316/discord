@@ -1,4 +1,4 @@
-import * as express from "express";
+import * as express from 'express'
 
 export const register = ( app: express.Application ) => {
     const oidc = app.locals.oidc;

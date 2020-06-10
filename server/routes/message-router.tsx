@@ -1,12 +1,14 @@
-const express = require('express')
-const messageCtrl = require('../controllers/message-ctrl')
+import * as express from 'express'
+import Message from '../models/message-model'
+import controller from '../controllers/message-ctrl'
 const router = express.Router()
 export {};
 
-router.post('/message', messageCtrl.createMessage)
-router.put('/message/:id', messageCtrl.editMessage)
-router.delete('/message/:id', messageCtrl.deleteMessage)
-router.get('/message/:id', messageCtrl.getMessageById)
-router.get('/messages', messageCtrl.getMessages)
+router.get('/messages', controller.getMessages)
+router.get('/message/:id', controller.getMessageById)
+router.post('/message', controller.createMessage)
+router.put('/message/:id', controller.editMessage)
+router.delete('/message/:id', controller.deleteMessage)
 
-module.exports = router;
+
+export default router;
