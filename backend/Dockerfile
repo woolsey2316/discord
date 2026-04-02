@@ -1,0 +1,23 @@
+FROM node:22-alpine
+
+# Change working directory
+WORKDIR /app
+
+RUN apk update && apk upgrade 
+
+# Copy source code
+COPY . /app
+
+
+# Install dependencies
+RUN npm install 
+
+RUN chown -R node:node /app
+
+USER node
+
+# Expose API port to the outside
+EXPOSE 5000
+
+# Launch application
+CMD ["npm","start"]

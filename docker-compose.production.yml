@@ -1,0 +1,17 @@
+services:
+  backend:
+    build: 
+      context: backend 
+      target: production 
+      dockerfile: Dockerfile
+
+  frontend:
+    build: 
+      context: frontend
+      target: production
+      dockerfile: Dockerfile
+
+  mongo:
+    build: 
+      context: mongo
+      target: production

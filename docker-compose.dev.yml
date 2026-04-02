@@ -1,0 +1,17 @@
+services:
+  backend:
+    build: 
+      context: backend
+      target: development
+      dockerfile: Dockerfile.dev
+
+  frontend:
+    build: 
+      context: frontend
+      target: development
+      dockerfile: Dockerfile.dev
+
+  mongo:
+    build:
+      context: mongo
+      target: development
