@@ -4,15 +4,19 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-# Stage 2: Development (includes dev-only tools/source)
+# Stage 2: Development (Vite dev server)
 FROM base AS development
-RUN npm install --only=development
 COPY . .
-EXPOSE 3000
-CMD ["npm", "run", "dev", "--", "--host", "--port", "3000"]
+EXPOSE 5173
+CMD ["npm", "run", "dev", "--", "--host"]
 
-# Stage 3: Production (final lean image)
-FROM base AS production
+# Stage 3: Build
+FROM base AS build
 COPY . .
-RUN npm prune --production
-CMD ["npm", "start"]
+RUN npm run build
+
+# Stage 4: Production (nginx)
+FROM nginx:stable-alpine AS production
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
