@@ -1,17 +1,16 @@
 services:
   backend:
+    env_file:
+      - .env.development
     build: 
       context: backend
       target: development
-      dockerfile: Dockerfile.dev
 
   frontend:
     build: 
       context: frontend
       target: development
-      dockerfile: Dockerfile.dev
 
   mongo:
-    build:
-      context: mongo
-      target: development
+    env_file:
+      - .env.development

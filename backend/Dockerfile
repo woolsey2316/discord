@@ -1,23 +1,20 @@
-FROM node:22-alpine
-
-# Change working directory
+# Stage 1: Base dependencies
+FROM node:22-alpine AS base
 WORKDIR /app
-
-RUN apk update && apk upgrade 
-
-# Copy source code
-COPY . /app
-
-
-# Install dependencies
-RUN npm install 
-
+RUN apk update && apk upgrade
+COPY package*.json ./
+RUN npm install
 RUN chown -R node:node /app
-
 USER node
 
-# Expose API port to the outside
+# Stage 2: Development
+FROM base AS development
+COPY --chown=node:node . .
 EXPOSE 5000
+CMD ["npm", "run", "dev"]
 
-# Launch application
-CMD ["npm","start"]
+# Stage 3: Production
+FROM base AS production
+COPY --chown=node:node . .
+EXPOSE 5000
+CMD ["npm", "start"]
