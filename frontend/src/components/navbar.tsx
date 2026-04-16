@@ -19,6 +19,9 @@ const LI = styled.li`
   &:hover div a svg {
     transform: rotate(180deg);
   }
+  div:has(+ div) a {
+    background-color: red;
+  }
 `
 const LinkWrap = styled.div`
   
