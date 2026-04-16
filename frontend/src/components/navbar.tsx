@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import ChevronDown from "@components/chevron"
+import ChevronDown from "@components/chevron";
+import safetyImage from "@assets/egg.webp";
+import questImage from "@assets/trophy.webp";
+import blogImage from "@assets/blog.webp";
+import supportImage from "@assets/support.webp";
+import developersImage from "@assets/developers.webp";
 const OuterContainer = styled.div`
   margin: 0 auto;
 `;
@@ -19,10 +24,20 @@ const LI = styled.li`
   &:hover div a svg {
     transform: rotate(180deg);
   }
+  &:hover div img {
+    opacity: 1;
+    transform: translate(0px, 0px);
+    @starting-style {
+      opacity: 0;
+      transform: translate(0px, 50px);
+    }
+  }
   
 `
 const LinkWrap = styled.div`
-  
+  &:has(+ div:hover) > a {
+    background-color: #5865f2;
+  }
 `
 const MainNavLink = styled.a`
   text-decoration: none;
@@ -64,20 +79,20 @@ const Navbar = () => {
         <LI>
           <LinkWrap>
             <MainNavLink href="/support"><div>Support</div><ChevronDown /></MainNavLink>
-            <SupportNav />
           </LinkWrap>
+          <SupportNav />
         </LI>
         <LI>
           <LinkWrap>
             <MainNavLink href="/blog"><div>Blog</div><ChevronDown /></MainNavLink>
-            <BlogNav />
           </LinkWrap>
+          <BlogNav />
         </LI>
         <LI>
           <LinkWrap>
             <MainNavLink href="/developers"><div>Developers</div><ChevronDown /></MainNavLink>
-            <DeveloperNav />
           </LinkWrap>
+          <DeveloperNav />
         </LI>
         <LI><MainNavLink href="/careers">Careers</MainNavLink></LI>
       </UL>
@@ -111,9 +126,6 @@ const SmallHeading = styled.h6`
 `
 const OuterSafetyContainer = styled.div`
   padding-top: 0.435rem;
-  &:has(+ div) a {
-    background-color: red;
-  };
 `
 const Container = styled.nav`
   opacity: 0;
@@ -148,6 +160,20 @@ const InnerSafetyContainer = styled.div`
   gap: 2.5rem;
   grid-template-columns: auto auto;
 `
+const Image = styled.img`
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition-behavior: allow-discrete;
+  width: 100%;
+  max-width: 12.5rem;
+  transform-style: preserve-3d;
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: -7rem;
+  margin-bottom: -7rem;
+  transform: translate(0px, 50px);
+`
 const SafetyNav = () => {
   return <OuterSafetyContainer>
     <Container>
@@ -172,6 +198,7 @@ const SafetyNav = () => {
           <Link href="/wellbeing">Wellbeing Hub</Link>
         </Wrap>
       </InnerSafetyContainer>
+      <Image src={safetyImage} />
     </Container>
   </OuterSafetyContainer>
 }
@@ -204,6 +231,20 @@ const PlainWrap = styled.div`
   flex-direction: column;
   gap: 0.75rem;
 `
+const QuestImage = styled.img`
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition-behavior: allow-discrete;
+  width: 100%;
+  max-width: 9.5rem;
+  transform-style: preserve-3d;
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: -5rem;
+  margin-bottom: -5rem;
+  transform: translate(0px, 50px);
+`
 const QuestsNav = () => {
   return <PlainOuterContainer>
     <PlainContainer>
@@ -215,11 +256,25 @@ const QuestsNav = () => {
         <Link href="/safety">Success Stories</Link>
         <Link href="/news">Quests FAQ</Link>
       </PlainWrap>
+      <QuestImage src={questImage} />
     </PlainContainer>
   </PlainOuterContainer>
 
 }
-
+const SupportImage = styled.img`
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition-behavior: allow-discrete;
+  width: 100%;
+  max-width: 9.5rem;
+  transform-style: preserve-3d;
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: -5rem;
+  margin-bottom: -5rem;
+  transform: translate(0px, 50px);
+`
 const SupportNav = () => {
   return <PlainOuterContainer>
     <PlainContainer>
@@ -231,6 +286,7 @@ const SupportNav = () => {
         <Link href="/safety">Feedback</Link>
         <Link href="/news">Submit a Request</Link>
       </PlainWrap>
+      <SupportImage src={supportImage} />
     </PlainContainer>
   </PlainOuterContainer>
 
@@ -256,6 +312,20 @@ const PlainBlogContainer = styled.nav`
     display: block;
   }
 `
+const BlogImage = styled.img`
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition-behavior: allow-discrete;
+  width: 100%;
+  max-width: 9.5rem;
+  transform-style: preserve-3d;
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: -5rem;
+  margin-bottom: -5rem;
+  transform: translate(0px, 50px);
+`
 const BlogNav = () => {
   return <PlainOuterContainer>
     <PlainBlogContainer >
@@ -271,6 +341,7 @@ const BlogNav = () => {
         <Link href="/news">Policy & Safety</Link>
         <Link href="/news">Product & Features</Link>
       </PlainWrap>
+      <BlogImage src={blogImage} />
     </PlainBlogContainer>
   </PlainOuterContainer>
 
@@ -314,6 +385,20 @@ const LineBreak = styled.div`
   margin: .75rem 0;
   border-bottom: 1px solid #ffffff1a;
 `
+const DevelopersImage = styled.img`
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition-behavior: allow-discrete;
+  width: 100%;
+  max-width: 9.5rem;
+  transform-style: preserve-3d;
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: -5rem;
+  margin-bottom: -5rem;
+  transform: translate(0px, 50px);
+`
 const DeveloperNav = () => {
   return <OuterDeveloperContainer>
     <DeveloperContainer>
@@ -339,6 +424,7 @@ const DeveloperNav = () => {
           <Link href="/wellbeing">Wellbeing Hub</Link>
         </DeveloperWrap>
       </InnerDeveloperContainer>
+      <DevelopersImage src={developersImage} />
     </DeveloperContainer>
   </OuterDeveloperContainer>
 }

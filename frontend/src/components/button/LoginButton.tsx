@@ -10,6 +10,7 @@ const Button = styled.button`
   padding: 9px 16px;
   font-family: Abcgintodiscord, sans-serif;
   font-size: 16px;
+  font-weight: 600;
   transition: background-color .2s;
 `
 const LogInButton = () => {
