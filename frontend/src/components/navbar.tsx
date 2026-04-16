@@ -19,6 +19,7 @@ const LI = styled.li`
   &:hover div a svg {
     transform: rotate(180deg);
   }
+  
 `
 const LinkWrap = styled.div`
   
@@ -38,7 +39,8 @@ const MainNavLink = styled.a`
   color: #fff;
   &:hover {
     background-color: #5865f2;
-  }
+  };
+  
 `
 const Navbar = () => {
   return <OuterContainer>
@@ -108,7 +110,10 @@ const SmallHeading = styled.h6`
   font-weight: 500;
 `
 const OuterSafetyContainer = styled.div`
-  padding-top: 0.675rem;
+  padding-top: 0.435rem;
+  &:has(+ div) a {
+    background-color: red;
+  };
 `
 const Container = styled.nav`
   opacity: 0;
@@ -172,7 +177,7 @@ const SafetyNav = () => {
 }
 
 const PlainOuterContainer = styled.div`
-  padding-top: 0.675rem;
+  padding-top: 0.435rem;
 `
 const PlainContainer = styled.nav`
   opacity: 0;
@@ -272,7 +277,7 @@ const BlogNav = () => {
 }
 
 const OuterDeveloperContainer = styled.div`
-  padding-top: 0.675rem;
+  padding-top: 0.435rem;
 `
 const DeveloperContainer = styled.nav`
   opacity: 0;
@@ -285,7 +290,7 @@ const DeveloperContainer = styled.nav`
   padding: 2rem;
   position: absolute;
   width: 305px;
-  min-height: 445px;
+  min-height: 455px;
   transform: translate(-50%,0);
   padding: 2rem;
   x: 50%;
