@@ -1,9 +1,10 @@
 import styled from "styled-components"
-const Button = styled.button`
+const Button = styled.a`
   background-color: #fff;
   color: #000;
   cursor: pointer;
   text-align: center;
+  text-decoration: none;
   border-style: none;
   border-radius: 16px;
   margin-bottom: 0;
@@ -14,7 +15,7 @@ const Button = styled.button`
   transition: background-color .2s;
 `
 const LogInButton = () => {
-  return <Button>
+  return <Button href="/login">
     Log In
   </Button>
 }

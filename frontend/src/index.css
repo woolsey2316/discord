@@ -108,3 +108,24 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+@font-face {
+  font-family: 'Ginto Bold';
+  src: url('./assets/fonts/Ginto_Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ginto Regular';
+  src: url('./assets/fonts/Ginto_Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ginto Nord Regular';
+  src: url('./assets/fonts/Ginto_Nord_Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}

@@ -7,6 +7,7 @@ import supportImage from "@assets/support.webp";
 import developersImage from "@assets/developers.webp";
 const OuterContainer = styled.div`
   margin: 0 auto;
+  z-index: 100;
 `;
 const InnerContainer = styled.div``;
 const UL = styled.ul`
